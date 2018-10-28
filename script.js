@@ -26,7 +26,7 @@ let bodyObserver = new MutationObserver(() => {
           if (
             lines.length > 2 &&
             currentLine.match(/[ ]/) === null &&
-            currentLine.length !== 0
+            currentLine.length === 0
           ) {
             let nonSpaceChars = new RegExp(/[^ ]/);
             let firstNonSpaceChar = nonSpaceChars.exec(lineAbove);
@@ -34,8 +34,10 @@ let bodyObserver = new MutationObserver(() => {
             let offset = -2;
             // Indent further if line above is a hint
             if (lastChar === "⟩") offset = 2;
-            typeInTextarea(el, " ".repeat(firstNonSpaceChar.index + offset || 2));
-            // ^ the '|| 2' causes indendation to default to 2 in case other side evaluates to 0
+            typeInTextarea(
+              el,
+              " ".repeat(Math.max(firstNonSpaceChar.index + offset, 2))
+            );
           } else {
             typeInTextarea(el, "  ");
           }
