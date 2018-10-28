@@ -14,6 +14,7 @@ let bodyObserver = new MutationObserver(() => {
   let cells = document.querySelectorAll("textarea");
   cells.forEach(el => {
     el.addEventListener("keydown", event => {
+      // Convert Tab key presses to 2 spaces
       // Run only when Tab key is pressed alone
       if (event.keyCode === 9 && !(event.shiftKey || event.ctrlKey)) {
         let text = el.value;
@@ -44,12 +45,15 @@ let bodyObserver = new MutationObserver(() => {
         }
       }
 
+      // Copy contents of two lines above to current line
+      // Run only when Ctrl+B is pressed
       if (event.keyCode === 66 && event.ctrlKey) {
         let text = el.value;
         let lines = text.substr(0, el.selectionStart).split("\n");
         let currentLine = lines[lines.length - 1];
         let lastLine = lines[lines.length - 3];
         if (lines.length >= 3) {
+          // Check if user has already indented and if so, use that indentation instead
           if (currentLine[0] === " ") {
             typeInTextarea(el, lastLine.trim());
           } else {
