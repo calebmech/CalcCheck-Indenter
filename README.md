@@ -3,6 +3,7 @@ Easy indenting for CalcCheckWeb
 
 - Converts Tab key presses inside CalcCheckWeb cells to 2 spaces (on lines that contain whitespace only)
 - Automatically indents more than 2 spaces based upon indentation level of line above
+- Press Ctrl+B to copy line from two lines up to current line
 
 ## Installation
 
