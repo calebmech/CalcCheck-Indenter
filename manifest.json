@@ -1,8 +1,9 @@
 {
   "name": "CalcCheck Indenter",
   "version": "1.0",
+  "description": "Easy indenting for CalcCheckWeb",
   "manifest_version": 2,
-  "permissions": ["*://130.113.68.214*"],
+  "permissions": ["*://130.113.68.214/*"],
   "content_scripts": [
     {
       "matches": ["*://130.113.68.214/*"],
