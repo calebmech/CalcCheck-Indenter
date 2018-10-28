@@ -43,6 +43,20 @@ let bodyObserver = new MutationObserver(() => {
           }
         }
       }
+
+      if (event.keyCode === 66 && event.ctrlKey) {
+        let text = el.value;
+        let lines = text.substr(0, el.selectionStart).split("\n");
+        let currentLine = lines[lines.length - 1];
+        let lastLine = lines[lines.length - 3];
+        if (lines.length >= 3) {
+          if (currentLine[0] === " ") {
+            typeInTextarea(el, lastLine.trim());
+          } else {
+            typeInTextarea(el, lastLine);
+          }
+        }
+      }
     });
   });
 });
