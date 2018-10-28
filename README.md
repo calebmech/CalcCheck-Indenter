@@ -9,4 +9,6 @@ Easy indenting for CalcCheckWeb
 1. Download or clone repository
 2. Go to chrome://extensions/
 3. Enable "Developer mode"
-4. Load unpacked extension
+4. Click "Load unpacked"
+5. Select directory where you extracted the extension
+6. Reload any previously open CalcCheck notebooks
