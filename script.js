@@ -23,7 +23,11 @@ let bodyObserver = new MutationObserver(() => {
         // Don't run if there are any non-space characters on the current line
         if (currentLine.match(/[^ ]/) === null) {
           // Make first Tab press on blank line to catch up to indentation level of line above
-          if (lines.length > 2 && currentLine.match(/[ ]/) === null) {
+          if (
+            lines.length > 2 &&
+            currentLine.match(/[ ]/) === null &&
+            currentLine.length !== 0
+          ) {
             let nonSpaceChars = new RegExp(/[^ ]/);
             let firstNonSpaceChar = nonSpaceChars.exec(lineAbove);
             let lastChar = lineAbove[lineAbove.length - 1];
