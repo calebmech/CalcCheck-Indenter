@@ -6,7 +6,11 @@ Easy indenting for CalcCheckWeb
 - Press Ctrl+B to copy line from two lines up to current line
 - Displays warning on navigation away from unsaved notebook (provided syntax or proof check has been run since last save)
 
-## Installation
+## Installing from the Web Store
+
+https://chrome.google.com/webstore/detail/calccheck-indenter/bbkojflhldpidbhpkknnniajcojmbecf/
+
+## Installing from Source
 
 1. Download or clone repository
 2. Go to chrome://extensions/
