@@ -3,18 +3,6 @@
 var lastUpdate = 0;
 var lastSave = 0;
 
-function typeInTextarea(el, newText) {
-  // taken from https://stackoverflow.com/questions/11076975/insert-text-into-textarea-at-cursor-position-javascript
-  let start = el.selectionStart;
-  let end = el.selectionEnd;
-  let text = el.value;
-  let before = text.substring(0, start);
-  let after = text.substring(end, text.length);
-  el.value = before + newText + after;
-  el.selectionStart = el.selectionEnd = start + newText.length;
-  el.focus();
-}
-
 function handleKeyDown(el, event) {
   // Convert Tab key presses to 2 spaces
   // Run only when Tab key is pressed alone
@@ -37,12 +25,13 @@ function handleKeyDown(el, event) {
         let offset = -2;
         // Indent further if line above is a hint
         if (lastChar === "⟩") offset = 2;
-        typeInTextarea(
-          el,
+        document.execCommand(
+          "insertText",
+          false,
           " ".repeat(Math.max(firstNonSpaceChar.index + offset, 2))
         );
       } else {
-        typeInTextarea(el, "  ");
+        document.execCommand("insertText", false, "  ");
       }
     }
   }
@@ -57,9 +46,9 @@ function handleKeyDown(el, event) {
     if (lines.length >= 3) {
       // Check if user has already indented and if so, use that indentation instead
       if (currentLine[0] === " ") {
-        typeInTextarea(el, lastLine.trim());
+        document.execCommand("insertText", false, lastLine.trim());
       } else {
-        typeInTextarea(el, lastLine);
+        document.execCommand("insertText", false, lastLine);
       }
     }
   }
