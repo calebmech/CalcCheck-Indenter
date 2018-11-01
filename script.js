@@ -69,6 +69,17 @@ function handleKeyDown(el, event) {
   if (event.keyCode === 13 && event.ctrlKey) {
     lastUpdate = Date.now();
   }
+
+  if (event.keyCode === 75 && event.ctrlKey && event.shiftKey) {
+    let text = el.value;
+    let startPos = el.selectionStart - 1;
+    let endPos = el.selectionEnd - 1;
+    while (text[startPos] !== "\n") startPos -= 1;
+    while (text[endPos] !== "\n") endPos += 1;
+    el.selectionStart = startPos;
+    el.selectionEnd = endPos;
+    document.execCommand("insertText", false, newText);
+  }
 }
 
 // Observe changes to list of saves
