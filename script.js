@@ -20,7 +20,7 @@ function handleKeyDown(el, event) {
         currentLine.length === 0
       ) {
         let nonSpaceChars = new RegExp(/[^ ]/);
-        let firstNonSpaceChar = nonSpaceChars.exec(lineAbove);
+        let firstNonSpaceChar = nonSpaceChars.exec(lineAbove) || { index: 0 };
         let lastChar = lineAbove[lineAbove.length - 1];
         let offset = -2;
         // Indent further if line above is a hint
