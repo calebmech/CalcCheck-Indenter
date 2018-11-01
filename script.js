@@ -59,15 +59,20 @@ function handleKeyDown(el, event) {
     lastUpdate = Date.now();
   }
 
+  // Clear current line / currently selected lines
+  // Run only when Ctrl+Shift+K is pressed
   if (event.keyCode === 75 && event.ctrlKey && event.shiftKey) {
     let text = el.value;
-    let startPos = el.selectionStart - 1;
-    let endPos = el.selectionEnd - 1;
-    while (text[startPos] !== "\n") startPos -= 1;
-    while (text[endPos] !== "\n") endPos += 1;
+    let startPos = Math.max(el.selectionStart - 1, 0);
+    let endPos = el.selectionEnd;
+    // Find start of line
+    while (startPos > 0 && text[startPos] !== "\n") startPos -= 1;
+    // Find end of line
+    while (endPos < text.length && text[endPos] !== "\n") endPos += 1;
+
     el.selectionStart = startPos;
     el.selectionEnd = endPos;
-    document.execCommand("insertText", false, newText);
+    document.execCommand("insertText", false, startPos ? "\n" : "");
   }
 }
 
