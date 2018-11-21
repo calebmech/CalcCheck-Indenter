@@ -1,5 +1,5 @@
 # CalcCheck Indenter
-Easy indenting for CalcCheckWeb
+Easy indenting for [CalcCheckWeb](http://calccheck.mcmaster.ca/CalcCheckDoc/)
 
 - Converts Tab key presses inside CalcCheckWeb cells to 2 spaces (on lines that contain whitespace only)
 - Automatically indents more than 2 spaces based upon indentation level of line above
