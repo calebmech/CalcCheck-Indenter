@@ -37,8 +37,8 @@ function handleKeyDown(el, event) {
   }
 
   // Copy contents of two lines above to current line
-  // Run only when Ctrl+B is pressed
-  if (event.keyCode === 66 && event.ctrlKey) {
+  // Run only when Ctrl+Alt+V is pressed
+  if (event.keyCode === 86 && event.ctrlKey && event.altKey) {
     let text = el.value;
     let lines = text.substr(0, el.selectionStart).split("\n");
     let currentLine = lines[lines.length - 1];
