@@ -4,38 +4,6 @@ var lastUpdate = 0;
 var lastSave = 0;
 
 function handleKeyDown(el, event) {
-  // Convert Tab key presses to 2 spaces
-  // Run only when Tab key is pressed alone
-  if (event.keyCode === 9 && !(event.shiftKey || event.ctrlKey)) {
-    let text = el.value;
-    let lines = text.substr(0, el.selectionStart).split("\n");
-    let currentLine = lines[lines.length - 1];
-    let lineAbove = lines[lines.length - 2];
-    // Don't run if there are any non-space characters on the current line
-    if (currentLine.match(/[^ ]/) === null) {
-      // Make first Tab press on blank line to catch up to indentation level of line above
-      if (
-        lines.length > 2 &&
-        currentLine.match(/[ ]/) === null &&
-        currentLine.length === 0
-      ) {
-        let nonSpaceChars = new RegExp(/[^ ]/);
-        let firstNonSpaceChar = nonSpaceChars.exec(lineAbove) || { index: 0 };
-        let lastChar = lineAbove[lineAbove.length - 1];
-        let offset = -2;
-        // Indent further if line above is a hint
-        if (lastChar === "⟩") offset = 2;
-        document.execCommand(
-          "insertText",
-          false,
-          " ".repeat(Math.max(firstNonSpaceChar.index + offset, 2))
-        );
-      } else {
-        document.execCommand("insertText", false, "  ");
-      }
-    }
-  }
-
   // Copy contents of two lines above to current line
   // Run only when Ctrl+Alt+V is pressed
   if (event.keyCode === 86 && event.ctrlKey && event.altKey) {
