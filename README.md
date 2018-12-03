@@ -1,5 +1,5 @@
 # CalcCheck Indenter
-Easy indenting for [CalcCheckWeb](http://calccheck.mcmaster.ca/CalcCheckDoc/)
+A collection of utilities for [CalcCheckWeb](http://calccheck.mcmaster.ca/CalcCheckDoc/)
 
 - Press Ctrl+Alt+V to copy line from two lines up to current line
 - Press Ctrl+Shift+K to clear currently selected line(s) (similar to VS Code)
