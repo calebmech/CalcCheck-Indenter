@@ -2,8 +2,8 @@
 Easy indenting for [CalcCheckWeb](http://calccheck.mcmaster.ca/CalcCheckDoc/)
 
 - Press Ctrl+Alt+V to copy line from two lines up to current line
-- Displays warning on navigation away from unsaved notebook (provided syntax or proof check has been run since last save)
 - Press Ctrl+Shift+K to clear currently selected line(s) (similar to VS Code)
+- Displays warning on navigation away from unsaved notebook (provided syntax or proof check has been run since last save)
 
 #### Removed features 
 - Converts Tab key presses inside CalcCheckWeb cells to 2 spaces (on lines that contain whitespace only)
